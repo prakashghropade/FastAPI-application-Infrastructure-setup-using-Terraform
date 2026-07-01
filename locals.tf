@@ -45,24 +45,63 @@ locals {
   }
 
   instances = {
+
+    bastion = {
+      ami_name            = "ubuntu"
+      instance_type       = "t3.micro"
+      subnet              = "public-a"
+      security_group      = "bastion"
+      associate_public_ip = true
+      private_ip          = "10.0.1.10"
+    }
+
     green = {
-      subnet = "app-a"
-      type   = "t3.medium"
-      role   = "app"
+      ami_name            = "ubuntu"
+      instance_type       = "t3.medium"
+      subnet              = "app-a"
+      security_group      = "app"
+      associate_public_ip = false
+      private_ip          = "10.0.11.10"
     }
 
     blue = {
-      subnet = "app-b"
-      type   = "t3.medium"
-      role   = "app"
+      ami_name            = "ubuntu"
+      instance_type       = "t3.medium"
+      subnet              = "app-b"
+      security_group      = "app"
+      associate_public_ip = false
+      private_ip          = "10.0.12.10"
     }
 
     database = {
-      subnet = "db-a"
-      type   = "t3.medium"
-      role   = "db"
+      ami_name            = "ubuntu"
+      instance_type       = "t3.medium"
+      subnet              = "db-a"
+      security_group      = "db"
+      associate_public_ip = false
+      private_ip          = "10.0.21.10"
     }
+
   }
 
+  security_groups = {
+
+    alb = {
+      description = "Application Load Balancer Security Group"
+    }
+
+    app = {
+      description = "Application Security Group"
+    }
+
+    db = {
+      description = "Database Security Group"
+    }
+
+    bastion = {
+      description = "Bastion Host Security Group"
+    }
+
+  }
 
 }

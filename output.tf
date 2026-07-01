@@ -25,3 +25,15 @@ output "private_db_subnets" {
     if local.subnets[k].type == "private-db"
   }
 }
+
+
+output "security_group_ids" {
+
+  value = {
+    alb     = aws_security_group.sg["alb"].id
+    app     = aws_security_group.sg["app"].id
+    db      = aws_security_group.sg["db"].id
+    bastion = aws_security_group.sg["bastion"].id
+  }
+
+}
