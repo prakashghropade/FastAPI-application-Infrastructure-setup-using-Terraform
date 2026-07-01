@@ -38,7 +38,7 @@ resource "aws_lb_target_group" "tg" {
 
   target_type = "instance"
 
-  vpc_id = aws_vpc.main.id
+  vpc_id = aws_vpc.fastapivpc.id
 
   health_check {
 
@@ -117,7 +117,6 @@ resource "aws_lb_listener" "https" {
   }
 
 }
-
 
 resource "aws_lb_listener" "http" {
 
