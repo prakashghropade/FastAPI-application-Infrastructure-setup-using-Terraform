@@ -112,6 +112,10 @@ locals {
     green = {
       port = 80
     }
+
+    production = {
+      port = 80
+    }
   }
 
 
