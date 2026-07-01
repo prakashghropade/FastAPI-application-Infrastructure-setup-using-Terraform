@@ -104,4 +104,15 @@ locals {
 
   }
 
+  target_groups = {
+    blue = {
+      port = 80
+    }
+
+    green = {
+      port = 80
+    }
+  }
+
+
 }

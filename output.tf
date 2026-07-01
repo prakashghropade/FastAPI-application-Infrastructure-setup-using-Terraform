@@ -37,3 +37,45 @@ output "security_group_ids" {
   }
 
 }
+
+
+
+output "alb_dns_name" {
+  value = aws_lb.alb.dns_name
+}
+
+output "alb_zone_id" {
+  value = aws_lb.alb.zone_id
+}
+
+output "green_target_group" {
+  value = aws_lb_target_group.tg["green"].arn
+}
+
+output "blue_target_group" {
+  value = aws_lb_target_group.tg["blue"].arn
+}
+
+output "listener_arn" {
+  value = aws_lb_listener.https.arn
+}
+
+output "route53_name_servers" {
+
+  description = "Update these nameservers in Hostinger"
+
+  value = aws_route53_zone.main.name_servers
+
+}
+
+output "hosted_zone_id" {
+
+  value = aws_route53_zone.main.zone_id
+
+}
+
+output "certificate_arn" {
+
+  value = aws_acm_certificate_validation.cert.certificate_arn
+
+}
